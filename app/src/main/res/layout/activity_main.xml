@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="io.paperplane.techpanda.scorekeeper.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <LinearLayout
+            android:id="@+id/linearParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/teamOneChildLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teamOneName"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ohio_state_helmet" />
+
+                <TextView
+                    android:id="@+id/teamOneScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="0"
+                    android:textSize="42sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamATD"
+                    android:text="@string/btnTouchdown" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamAFG"
+                    android:text="@string/btnFG" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamAExtraPoint"
+                    android:text="@string/btnOnePoint" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamATwoPoints"
+                    android:text="@string/btnTwoPoint" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamATwoPoints"
+                    android:text="@string/btnSafety" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary" />
+
+            <LinearLayout
+                android:id="@+id/teamTwoChildLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/teamTwoName"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/michigan_helmet" />
+
+                <TextView
+                    android:id="@+id/teamTwoScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="0"
+                    android:textSize="42sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamBTD"
+                    android:text="@string/btnTouchdown" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamBFG"
+                    android:text="@string/btnFG" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamBExtraPoint"
+                    android:text="@string/btnOnePoint" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamBTwoPoints"
+                    android:text="@string/btnTwoPoint" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:onClick="teamBTwoPoints"
+                    android:text="@string/btnSafety" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="resetScores"
+            android:text="Reset"
+            android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+
+</ScrollView>
+
+
