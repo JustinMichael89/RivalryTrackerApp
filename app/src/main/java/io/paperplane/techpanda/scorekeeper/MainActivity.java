@@ -1,5 +1,6 @@
 package io.paperplane.techpanda.scorekeeper;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,45 +8,54 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    // These values are initialized in the onCreate method
     int scoreTeamOne = 0;
     int scoreTeamTwo = 0;
-    TextView scoreViewTeamOne, scoreViewTeamTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        scoreViewTeamOne = (TextView) findViewById(R.id.scoreTeamOne);
-        scoreViewTeamTwo = (TextView) findViewById(R.id.scoreTeamTwo);
+        // Check to see if this is the initial creation
+        if (savedInstanceState == null) {
+            // If yes, init the score counters
+            Intent intent = getIntent();
+
+            scoreTeamOne = intent.getIntExtra("scoreTeamOne", 0);
+            scoreTeamTwo = intent.getIntExtra("scoreTeamTwo", 0);
+        }
+        // If NOT initial creation, retrieve saved scores
+        else {
+            scoreTeamOne = savedInstanceState.getInt("scoreTeamOne");
+            scoreTeamTwo = savedInstanceState.getInt("scoreTeamTwo");
+        }
 
         displayTeamOneScore(scoreTeamOne);
         displayTeamTwoScore(scoreTeamTwo);
     }
 
+    // If the process is killed or restarted this will save the bundle
+    // and pass the data to the onCreate method.
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("scoreTeamOne", scoreTeamOne);
-        outState.putInt("ScoreTeamTwo", scoreTeamTwo);
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("scoreTeamOne", scoreTeamOne);
+        savedInstanceState.putInt("ScoreTeamTwo", scoreTeamTwo);
     }
 
+    // Restore the state from the savedInstanceState
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         scoreTeamOne = savedInstanceState.getInt("scoreTeamOne");
         scoreTeamTwo = savedInstanceState.getInt("scoreTeamTwo");
+
+        displayTeamOneScore(scoreTeamOne);
+        displayTeamTwoScore(scoreTeamTwo);
     }
 
-    // Display score for Team One
-    public void displayTeamOneScore(int score) {
-        scoreViewTeamOne.setText(String.valueOf(score));
-    }
-
-    // Display score for Team Two
-    public void displayTeamTwoScore(int score) {
-        scoreViewTeamTwo.setText(String.valueOf(score));
-    }
 
     // Add touchdown points to Team One
     public void teamATD(View view) {
@@ -109,5 +119,17 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamTwo = 0;
         displayTeamOneScore(scoreTeamOne);
         displayTeamTwoScore(scoreTeamTwo);
+    }
+
+    // Display score for Team One
+    public void displayTeamOneScore(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.scoreTeamOne);
+        scoreView.setText(String.valueOf(score));
+    }
+
+    // Display score for Team Two
+    public void displayTeamTwoScore(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.scoreTeamTwo);
+        scoreView.setText(String.valueOf(score));
     }
 }

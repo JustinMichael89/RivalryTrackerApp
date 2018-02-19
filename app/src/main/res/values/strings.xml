@@ -2,8 +2,6 @@
     <string name="app_name">Rivalry Tracker</string>
     <string name="teamOneName">OSU</string>
     <string name="teamTwoName">MSU</string>
-    <integer name="teamOneScore">0</integer>
-    <integer name="teamTwoScore">0</integer>
     <string name="btnFG">Field Goal</string>
     <string name="btnOnePoint">Extra Point</string>
     <string name="btnTwoPoint">2 Point Conversion</string>
