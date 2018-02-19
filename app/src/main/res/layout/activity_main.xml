@@ -3,7 +3,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -11,6 +10,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/layoutMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBackground">
@@ -45,7 +45,7 @@
                     android:src="@drawable/ohio_state_helmet" />
 
                 <TextView
-                    android:id="@+id/teamOneScore"
+                    android:id="@+id/scoreTeamOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -127,7 +127,7 @@
                     android:src="@drawable/michigan_helmet" />
 
                 <TextView
-                    android:id="@+id/teamTwoScore"
+                    android:id="@+id/scoreTeamTwo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -189,7 +189,7 @@
             android:id="@+id/btnReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/linearParent"
             android:layout_centerHorizontal="true"
             android:onClick="resetScores"
             android:text="Reset"

@@ -9,23 +9,42 @@ public class MainActivity extends AppCompatActivity {
 
     int scoreTeamOne = 0;
     int scoreTeamTwo = 0;
+    TextView scoreViewTeamOne, scoreViewTeamTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        scoreViewTeamOne = (TextView) findViewById(R.id.scoreTeamOne);
+        scoreViewTeamTwo = (TextView) findViewById(R.id.scoreTeamTwo);
+
+        displayTeamOneScore(scoreTeamOne);
+        displayTeamTwoScore(scoreTeamTwo);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("scoreTeamOne", scoreTeamOne);
+        outState.putInt("ScoreTeamTwo", scoreTeamTwo);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scoreTeamOne = savedInstanceState.getInt("scoreTeamOne");
+        scoreTeamTwo = savedInstanceState.getInt("scoreTeamTwo");
     }
 
     // Display score for Team One
     public void displayTeamOneScore(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamOneScore);
-        scoreView.setText(String.valueOf(score));
+        scoreViewTeamOne.setText(String.valueOf(score));
     }
 
     // Display score for Team Two
     public void displayTeamTwoScore(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamTwoScore);
-        scoreView.setText(String.valueOf(score));
+        scoreViewTeamTwo.setText(String.valueOf(score));
     }
 
     // Add touchdown points to Team One
