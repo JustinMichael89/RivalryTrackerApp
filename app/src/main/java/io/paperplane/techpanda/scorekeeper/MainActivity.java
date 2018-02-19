@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("scoreTeamOne", scoreTeamOne);
-        savedInstanceState.putInt("ScoreTeamTwo", scoreTeamTwo);
+        savedInstanceState.putInt("scoreTeamTwo", scoreTeamTwo);
     }
 
     // Restore the state from the savedInstanceState
